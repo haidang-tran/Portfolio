@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hai Dang Tran — DevOps Engineer</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+  <!-- Prevent flash of wrong theme or lang -->
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    document.documentElement.setAttribute('data-lang', localStorage.getItem('lang') || 'en');
+  </script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="lang-en">Hai Dang.</span>
+      <span class="lang-vi">Hải Đăng.</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">
+        <span class="lang-en">Overview</span>
+        <span class="lang-vi">Tổng quan</span>
+      </a>
+      <a href="blog.html">Homelab</a>
+      <a href="infra.html" class="active">
+        <span class="lang-en">Infrastructure</span>
+        <span class="lang-vi">Hạ tầng</span>
+      </a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">VI</button>
+  </nav>
+
+  <div class="docs-layout">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <h4>
+        <span class="lang-en">Documentation</span>
+        <span class="lang-vi">Tài liệu</span>
+      </h4>
+      <ul class="docs-nav">
+        <li><a href="index.html">
+          <span class="lang-en">About Me</span>
+          <span class="lang-vi">Về tôi</span>
+        </a></li>
+        <li><a href="blog.html">Docker Compose Homelab</a></li>
+        <li><a href="infra.html" class="active">
+          <span class="lang-en">Site Infrastructure</span>
+          <span class="lang-vi">Hạ tầng trang web</span>
+        </a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <h1 id="overview">
+        <span class="lang-en">Site Infrastructure</span>
+        <span class="lang-vi">Hạ tầng trang web</span>
+      </h1>
+      <p class="intro">
+        <span class="lang-en">This portfolio is hosted and deployed using modern Cloud Native patterns, leveraging Infrastructure as Code (IaC) and GitOps for automated delivery.</span>
+        <span class="lang-vi">Portfolio này được host và triển khai theo các pattern Cloud Native hiện đại, tận dụng Infrastructure as Code (IaC) và GitOps để tự động hóa quá trình delivery.</span>
+      </p>
+
+      <h2 id="core-technologies">
+        <span class="lang-en">Core Technologies</span>
+        <span class="lang-vi">Công nghệ nền tảng</span>
+      </h2>
+      <ul>
+        <li>
+          <strong><span class="lang-en">Frontend Stack</span><span class="lang-vi">Frontend</span></strong>:
+          <span class="lang-en">Built using Vite + Vanilla HTML/CSS/JS for a fast, lightweight static site.</span>
+          <span class="lang-vi">Xây dựng bằng Vite + Vanilla HTML/CSS/JS để có một trang tĩnh nhanh và nhẹ.</span>
+        </li>
+        <li>
+          <strong><span class="lang-en">Hosting Environment</span><span class="lang-vi">Môi trường hosting</span></strong>:
+          <span class="lang-en">Host cluster is an <strong>Oracle Cloud Infrastructure (OCI) Always-Free Kubernetes cluster (OKE)</strong>.</span>
+          <span class="lang-vi">Cluster host là <strong>Oracle Cloud Infrastructure (OCI) Always-Free Kubernetes (OKE)</strong>.</span>
+        </li>
+        <li>
+          <strong>Infrastructure as Code (IaC)</strong>:
+          <span class="lang-en">Configured using Terraform to declare VCN, subnets (public/private), and node pools (2x <code>VM.Standard.A1.Flex</code> ARM64, totaling 4 OCPUs and 24 GB RAM).</span>
+          <span class="lang-vi">Cấu hình bằng Terraform để khai báo VCN, subnet (public/private) và node pool (2x <code>VM.Standard.A1.Flex</code> ARM64, tổng 4 OCPU và 24 GB RAM).</span>
+        </li>
+      </ul>
+
+      <h2 id="deployment">
+        <span class="lang-en">Deployment &amp; GitOps</span>
+        <span class="lang-vi">Triển khai &amp; GitOps</span>
+      </h2>
+      <ol>
+        <li>
+          <strong><span class="lang-en">Bootstrap Phase</span><span class="lang-vi">Giai đoạn khởi tạo</span></strong>:
+          <span class="lang-en">Terraform deploys the cluster and installs ArgoCD.</span>
+          <span class="lang-vi">Terraform deploy cluster và cài ArgoCD.</span>
+        </li>
+        <li>
+          <strong>App-of-Apps Pattern</strong>:
+          <span class="lang-en">ArgoCD synchronizes a master root app which deploys sub-charts:</span>
+          <span class="lang-vi">ArgoCD đồng bộ một root app chính để deploy các sub-chart:</span>
+          <ul>
+            <li><strong>Cert-Manager</strong>: <span class="lang-en">Automates SSL/TLS certificates via Let's Encrypt.</span><span class="lang-vi">Tự động hóa chứng chỉ SSL/TLS qua Let's Encrypt.</span></li>
+            <li><strong>Ingress-Nginx</strong>: <span class="lang-en">Acts as the reverse proxy ingress controller.</span><span class="lang-vi">Đóng vai trò ingress controller reverse proxy.</span></li>
+            <li><strong>portfolio-chart</strong>: <span class="lang-en">Custom Helm chart for the web server deployment.</span><span class="lang-vi">Helm chart tùy chỉnh cho việc triển khai web server.</span></li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2 id="cicd">CI/CD Pipeline (GitHub Actions)</h2>
+      <p>
+        <span class="lang-en">On code push to the <code>main</code> branch, the following automated pipeline triggers:</span>
+        <span class="lang-vi">Khi có code push lên nhánh <code>main</code>, pipeline tự động sau đây được kích hoạt:</span>
+      </p>
+      <ol>
+        <li><span class="lang-en">GitHub Actions runner logs into Docker Hub.</span><span class="lang-vi">GitHub Actions runner đăng nhập vào Docker Hub.</span></li>
+        <li><span class="lang-en">Configures QEMU for ARM64 cross-platform builds.</span><span class="lang-vi">Cấu hình QEMU cho cross-platform builds trên ARM64.</span></li>
+        <li><span class="lang-en">Builds the production image and tags it dynamically: <code>ga-YYYY.MM.DD-HHMM</code>.</span><span class="lang-vi">Build image production và gắn tag động theo format: <code>ga-YYYY.MM.DD-HHMM</code>.</span></li>
+        <li><span class="lang-en">Pushes the Docker image to the registry.</span><span class="lang-vi">Push Docker image lên registry.</span></li>
+        <li><span class="lang-en">Uses <code>yq</code> to update the Helm values file with the new image tag.</span><span class="lang-vi">Dùng <code>yq</code> cập nhật file Helm values với image tag mới.</span></li>
+        <li><span class="lang-en">Commits and pushes changes back to GitHub.</span><span class="lang-vi">Commit và push thay đổi trở lại GitHub.</span></li>
+        <li><span class="lang-en">ArgoCD autosync detects the commit and pulls the updated image to the cluster.</span><span class="lang-vi">ArgoCD autosync phát hiện commit và kéo image mới về cluster Kubernetes.</span></li>
+      </ol>
+
+    </main>
+
+    <!-- Table of Contents -->
+    <aside class="docs-toc">
+      <h5>
+        <span class="lang-en">On this page</span>
+        <span class="lang-vi">Mục lục</span>
+      </h5>
+      <ul class="toc-list">
+        <li><a href="#overview">
+          <span class="lang-en">Overview</span>
+          <span class="lang-vi">Tổng quan</span>
+        </a></li>
+        <li><a href="#core-technologies">
+          <span class="lang-en">Core Technologies</span>
+          <span class="lang-vi">Công nghệ</span>
+        </a></li>
+        <li><a href="#deployment">
+          <span class="lang-en">Deployment &amp; GitOps</span>
+          <span class="lang-vi">Triển khai</span>
+        </a></li>
+        <li><a href="#cicd">CI/CD Pipeline</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

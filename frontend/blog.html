@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hai Dang Tran — DevOps Engineer</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+  <!-- Prevent flash of wrong theme or lang -->
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    document.documentElement.setAttribute('data-lang', localStorage.getItem('lang') || 'en');
+  </script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="lang-en">Hai Dang.</span>
+      <span class="lang-vi">Hải Đăng.</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">
+        <span class="lang-en">Overview</span>
+        <span class="lang-vi">Tổng quan</span>
+      </a>
+      <a href="blog.html" class="active">Homelab</a>
+      <a href="infra.html">
+        <span class="lang-en">Infrastructure</span>
+        <span class="lang-vi">Hạ tầng</span>
+      </a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">VI</button>
+  </nav>
+
+  <div class="docs-layout">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <h4>
+        <span class="lang-en">Documentation</span>
+        <span class="lang-vi">Tài liệu</span>
+      </h4>
+      <ul class="docs-nav">
+        <li><a href="index.html">
+          <span class="lang-en">About Me</span>
+          <span class="lang-vi">Về tôi</span>
+        </a></li>
+        <li><a href="blog.html" class="active">Docker Compose Homelab</a></li>
+        <li><a href="infra.html">
+          <span class="lang-en">Site Infrastructure</span>
+          <span class="lang-vi">Hạ tầng trang web</span>
+        </a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <h1 id="overview">Docker Compose Homelab</h1>
+      <p class="intro">
+        <span class="lang-en">A self-hosted homelab running on a dedicated mini PC in a home network, managed entirely with Docker Compose. It provides media streaming, photo management, ad blocking, reverse proxying, and DDNS.</span>
+        <span class="lang-vi">Homelab tự host chạy trên một máy tính mini PC trong mạng nội bộ, quản lý hoàn toàn bằng Docker Compose. Cung cấp streaming media, quản lý ảnh, chặn quảng cáo, reverse proxy và DDNS.</span>
+      </p>
+
+      <h2 id="network-architecture">
+        <span class="lang-en">Network Architecture</span>
+        <span class="lang-vi">Kiến trúc mạng</span>
+      </h2>
+      <p>
+        <span class="lang-en">The network is configured to safely expose necessary services while isolating internal traffic.</span>
+        <span class="lang-vi">Mạng được cấu hình để expose các dịch vụ cần thiết một cách an toàn, đồng thời cô lập lưu lượng nội bộ.</span>
+      </p>
+      <ul>
+        <li>
+          <span class="lang-en">Ports <strong>80</strong> and <strong>443</strong> are forwarded from the home router to the mini PC.</span>
+          <span class="lang-vi">Cổng <strong>80</strong> và <strong>443</strong> được forward từ router gia đình đến mini PC.</span>
+        </li>
+        <li>
+          <span class="lang-en"><strong>Caddy</strong> handles TLS termination and traffic routing.</span>
+          <span class="lang-vi"><strong>Caddy</strong> xử lý TLS termination và định tuyến traffic.</span>
+        </li>
+        <li>
+          <span class="lang-en">Local-only services (on <code>.local</code> domains) are restricted by Caddy rules to LAN subnets (<code>192.168.0.0/24</code>).</span>
+          <span class="lang-vi">Các dịch vụ chỉ nội bộ (trên domain <code>.local</code>) bị Caddy giới hạn chỉ cho phép LAN subnet (<code>192.168.0.0/24</code>).</span>
+        </li>
+        <li>
+          <span class="lang-en">Shared internal bridge network (<code>homelab</code>) handles container-to-container communication.</span>
+          <span class="lang-vi">Mạng bridge nội bộ dùng chung (<code>homelab</code>) xử lý giao tiếp giữa các container.</span>
+        </li>
+      </ul>
+
+      <h2 id="core-services">
+        <span class="lang-en">Core Services</span>
+        <span class="lang-vi">Các dịch vụ chính</span>
+      </h2>
+
+      <h3 id="caddy">1. Caddy (Reverse Proxy &amp; TLS)</h3>
+      <p>
+        <span class="lang-en">Serves as the ingress controller. Fetches Let's Encrypt certificates for public endpoints and manages local CA certificates for <code>.local</code> domains.</span>
+        <span class="lang-vi">Đóng vai trò ingress controller. Lấy chứng chỉ Let's Encrypt cho endpoint công khai và quản lý CA certificate nội bộ cho domain <code>.local</code>.</span>
+      </p>
+
+      <h3 id="immich">2. Immich (<span class="lang-en">Photo Library</span><span class="lang-vi">Thư viện ảnh</span>)</h3>
+      <p>
+        <span class="lang-en">High-performance photo manager utilizing face/object recognition.</span>
+        <span class="lang-vi">Trình quản lý ảnh hiệu năng cao với nhận diện khuôn mặt và đối tượng.</span>
+      </p>
+      <ul>
+        <li><em><span class="lang-en">Containers</span><span class="lang-vi">Các container</span></em>: <code>immich-server</code>, <code>immich-machine-learning</code>, <code>redis</code> (Valkey), <code>database</code> (PostgreSQL + pgvector).</li>
+      </ul>
+
+      <h3 id="borg-backup">3. Borg Backup</h3>
+      <p>
+        <span class="lang-en">Performs automated, encrypted, and deduplicated backups.</span>
+        <span class="lang-vi">Thực hiện backup tự động, mã hóa và loại trừ dữ liệu trùng lặp.</span>
+      </p>
+      <ul>
+        <li>
+          <span class="lang-en">Database is dumped and the photo library is archived daily.</span>
+          <span class="lang-vi">Cơ sở dữ liệu được dump và thư viện ảnh được archive hàng ngày.</span>
+        </li>
+        <li>
+          <span class="lang-en">Excludes thumbnails and transcoded files to save space.</span>
+          <span class="lang-vi">Loại trừ thumbnail và file đã transcode để tiết kiệm dung lượng.</span>
+        </li>
+        <li>
+          <span class="lang-en">Pruning rules: keeps last 4 weekly and 3 monthly snapshots.</span>
+          <span class="lang-vi">Quy tắc pruning: giữ 4 snapshot hàng tuần và 3 snapshot hàng tháng gần nhất.</span>
+        </li>
+      </ul>
+
+      <h3 id="jellyfin">4. Jellyfin (<span class="lang-en">Media Server</span><span class="lang-vi">Máy chủ media</span>)</h3>
+      <p>
+        <span class="lang-en">Stream movie/audio libraries. Configured with AMD GPU hardware transcoding passthrough (<code>/dev/dri</code> and <code>radeonsi</code> VAAPI driver).</span>
+        <span class="lang-vi">Stream thư viện phim và âm nhạc. Được cấu hình với AMD GPU hardware transcoding passthrough (<code>/dev/dri</code> và driver VAAPI <code>radeonsi</code>).</span>
+      </p>
+      <pre><code>devices:
+  - /dev/dri/renderD128:/dev/dri/renderD128</code></pre>
+
+      <h3 id="adguard">5. AdGuard Home (DNS &amp; <span class="lang-en">Ad Blocking</span><span class="lang-vi">Chặn quảng cáo</span>)</h3>
+      <p>
+        <span class="lang-en">Restricts tracking domains and provides local split-horizon DNS routing for LAN devices.</span>
+        <span class="lang-vi">Chặn domain theo dõi và cung cấp split-horizon DNS nội bộ cho các thiết bị trong mạng LAN.</span>
+      </p>
+
+      <h3 id="ddns">6. DDNS Updater</h3>
+      <p>
+        <span class="lang-en">Polling script checking Amazon Web Services (<code>checkip.amazonaws.com</code>) for public IP changes and updating Namecheap DNS records accordingly.</span>
+        <span class="lang-vi">Script polling kiểm tra IP công khai qua AWS (<code>checkip.amazonaws.com</code>) và tự động cập nhật bản ghi DNS Namecheap khi có thay đổi.</span>
+      </p>
+
+    </main>
+
+    <!-- Table of Contents -->
+    <aside class="docs-toc">
+      <h5>
+        <span class="lang-en">On this page</span>
+        <span class="lang-vi">Mục lục</span>
+      </h5>
+      <ul class="toc-list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#network-architecture">
+          <span class="lang-en">Network Architecture</span>
+          <span class="lang-vi">Kiến trúc mạng</span>
+        </a></li>
+        <li><a href="#core-services">
+          <span class="lang-en">Core Services</span>
+          <span class="lang-vi">Các dịch vụ</span>
+        </a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

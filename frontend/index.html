@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hai Dang Tran — DevOps Engineer</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Prevent flash of wrong theme or lang -->
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    document.documentElement.setAttribute('data-lang', localStorage.getItem('lang') || 'en');
+  </script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="lang-en">Hai Dang.</span>
+      <span class="lang-vi">Hải Đăng.</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">
+        <span class="lang-en">Overview</span>
+        <span class="lang-vi">Tổng quan</span>
+      </a>
+      <a href="blog.html">Homelab</a>
+      <a href="infra.html">
+        <span class="lang-en">Infrastructure</span>
+        <span class="lang-vi">Hạ tầng</span>
+      </a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">VI</button>
+  </nav>
+
+  <!-- Hero Section: 6/4 split -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <!-- Left: Content (6) -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">
+          <span class="lang-en">DevOps Engineer — In Progress</span>
+          <span class="lang-vi">Kỹ sư DevOps — Đang học</span>
+        </p>
+        <h1>
+          <span class="lang-en">Hai Dang<br>Tran.</span>
+          <span class="lang-vi">Trần<br>Hải Đăng.</span>
+        </h1>
+        <p class="hero-bio">
+          <span class="lang-en">Software Engineering student at Can Tho University, building hands-on skills in cloud infrastructure, containers, and CI/CD pipelines.</span>
+          <span class="lang-vi">Sinh viên Kỹ thuật Phần mềm, Đại học Cần Thơ — đang thực hành về hạ tầng đám mây, container và CI/CD pipeline.</span>
+        </p>
+        <div class="hero-certs">
+          <span class="cert-tag">
+            <span class="lang-en">AWS — Learning</span>
+            <span class="lang-vi">AWS — Đang học</span>
+          </span>
+          <span class="cert-tag">Kỹ thuật Phần mềm · CTU</span>
+          <span class="cert-tag">2024 – 2028</span>
+        </div>
+        <p class="hero-location">
+          <span class="location-dot"></span>
+          <span class="lang-en">Can Tho, Vietnam</span>
+          <span class="lang-vi">Cần Thơ, Việt Nam</span>
+        </p>
+      </div>
+
+      <!-- Right: Photo (4) -->
+      <div class="hero-photo">
+        <img src="assets/img/avatar.jpg" alt="Hai Dang Tran">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skill UI (Bento Box) -->
+  <section class="skills-section">
+    <h2 class="section-title">
+      <span class="lang-en">Skills &amp; Tools.</span>
+      <span class="lang-vi">Kỹ năng &amp; Công cụ.</span>
+    </h2>
+    <div class="bento-grid">
+
+      <!-- Box 1: Cloud & Infrastructure -->
+      <div class="bento-card span-2">
+        <h3>DevOps &amp; Cloud</h3>
+        <p>
+          <span class="lang-en">Building and exploring cloud infrastructure from the ground up.</span>
+          <span class="lang-vi">Xây dựng và tìm hiểu hạ tầng cloud từ nền tảng.</span>
+        </p>
+        <div class="icon-grid">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+        </div>
+      </div>
+
+      <!-- Box 2: CI/CD -->
+      <div class="bento-card span-2">
+        <h3>CI/CD &amp; Automation</h3>
+        <p>
+          <span class="lang-en">Learning pipeline automation and version control workflows.</span>
+          <span class="lang-vi">Học tự động hóa pipeline và quy trình kiểm soát phiên bản.</span>
+        </p>
+        <div class="icon-grid">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Shell Script</span>
+        </div>
+      </div>
+
+      <!-- Box 3: Programming -->
+      <div class="bento-card span-3">
+        <h3>Programming &amp; Web</h3>
+        <p>
+          <span class="lang-en">Software engineering fundamentals studied at Can Tho University alongside DevOps practices.</span>
+          <span class="lang-vi">Kiến thức nền tảng Kỹ thuật Phần mềm tại Đại học Cần Thơ, song song với thực hành DevOps.</span>
+        </p>
+        <div class="icon-grid" style="margin-top: 2rem;">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">HTML / CSS / JS</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+
+      <!-- Box 4: Exploring -->
+      <div class="bento-card">
+        <h3>
+          <span class="lang-en">Exploring</span>
+          <span class="lang-vi">Đang tìm hiểu</span>
+        </h3>
+        <p>
+          <span class="lang-en">Currently studying.</span>
+          <span class="lang-vi">Đang trong quá trình học.</span>
+        </p>
+        <div class="icon-grid">
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Ansible</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education & Learning Journey -->
+  <section class="experience-section">
+    <div class="exp-container">
+
+      <!-- Pinned Left -->
+      <div class="exp-left">
+        <h2>
+          <span class="lang-en">Journey.</span>
+          <span class="lang-vi">Hành trình.</span>
+        </h2>
+        <p>
+          <span class="lang-en">Education and hands-on learning building toward a DevOps career.</span>
+          <span class="lang-vi">Học tập và thực hành hướng tới sự nghiệp DevOps.</span>
+        </p>
+      </div>
+
+      <!-- Scroll Right -->
+      <div class="exp-right">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-date">2024 – 2028</div>
+            <div class="exp-company">
+              <span class="lang-en">Can Tho University</span>
+              <span class="lang-vi">Đại học Cần Thơ</span>
+            </div>
+            <div class="exp-role">
+              <span class="lang-en">Bachelor of Software Engineering</span>
+              <span class="lang-vi">Cử nhân Kỹ thuật Phần mềm</span>
+            </div>
+          </div>
+          <div class="exp-body">
+            <ul>
+              <li>
+                <span class="lang-en">Studying core software engineering: algorithms, data structures, system design, and software architecture.</span>
+                <span class="lang-vi">Học các kiến thức nền tảng: giải thuật, cấu trúc dữ liệu, thiết kế hệ thống và kiến trúc phần mềm.</span>
+              </li>
+              <li>
+                <span class="lang-en">Applying DevOps practices through personal projects — containerization, CI/CD pipelines, and cloud deployments.</span>
+                <span class="lang-vi">Áp dụng DevOps vào các dự án cá nhân — container hóa ứng dụng, CI/CD pipeline và triển khai cloud.</span>
+              </li>
+              <li>
+                <span class="lang-en">Self-studying AWS cloud services alongside the formal curriculum.</span>
+                <span class="lang-vi">Tự học các dịch vụ AWS song song với chương trình học chính.</span>
+              </li>
+            </ul>
+            <div class="exp-tech">Linux • Docker • Git • AWS • Python • Java</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-date">2024 – Hiện tại</div>
+            <div class="exp-company">
+              <span class="lang-en">Self-directed Learning</span>
+              <span class="lang-vi">Tự học &amp; Thực hành</span>
+            </div>
+            <div class="exp-role">DevOps &amp; Cloud Engineering</div>
+          </div>
+          <div class="exp-body">
+            <ul>
+              <li>
+                <span class="lang-en">Building personal infrastructure projects to develop real-world DevOps skills.</span>
+                <span class="lang-vi">Xây dựng các dự án hạ tầng cá nhân để rèn kỹ năng DevOps thực tế.</span>
+              </li>
+              <li>
+                <span class="lang-en">Working toward AWS certification through structured coursework and hands-on labs.</span>
+                <span class="lang-vi">Đang học hướng tới chứng chỉ AWS qua khóa học có cấu trúc và thực hành trực tiếp.</span>
+              </li>
+              <li>
+                <span class="lang-en">Practicing CI/CD automation, container orchestration, and cloud-native concepts.</span>
+                <span class="lang-vi">Thực hành tự động hóa CI/CD, điều phối container và các khái niệm cloud-native.</span>
+              </li>
+            </ul>
+            <div class="exp-tech">Docker • Kubernetes • GitHub Actions • AWS • Shell</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ================================================
+       FEATURED PROJECTS SECTION
+       ================================================ -->
+  <section class="projects-section" id="projects">
+    <div class="projects-container">
+
+      <!-- Pinned Left Header -->
+      <div class="projects-left">
+        <p class="hero-eyebrow">Featured Work</p>
+        <h2>
+          <span class="lang-en">Projects.</span>
+          <span class="lang-vi">Dự án.</span>
+        </h2>
+        <div class="oracle-accent-line"></div>
+        <p>
+          <span class="lang-en">Hands-on infrastructure and automation projects — built to learn, shipped to production.</span>
+          <span class="lang-vi">Các dự án hạ tầng và tự động hóa — xây dựng để học, triển khai thực tế.</span>
+        </p>
+      </div>
+
+      <!-- Projects Grid Right -->
+      <div class="projects-right">
+
+        <!-- PROJECT CARD 1 — Edit your info here -->
+        <article class="project-card" id="proj-1" data-project="Project 1">
+          <div class="project-card-top">
+            <div class="project-meta">
+              <span class="proj-status proj-status--wip">In Progress</span>
+              <span class="proj-year">2024</span>
+            </div>
+            <a href="#" class="proj-repo-link" target="_blank" rel="noopener" aria-label="View repository">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            </a>
+          </div>
+          <h3 class="proj-title">Your Project Title Here</h3>
+          <p class="proj-desc">
+            <span class="lang-en">Add your project description here. Describe what problem it solves, the architecture, and the impact.</span>
+            <span class="lang-vi">Thêm mô tả dự án của bạn ở đây. Mô tả vấn đề giải quyết, kiến trúc và tác động.</span>
+          </p>
+          <div class="proj-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Python</span>
+          </div>
+          <button class="proj-feedback-btn" data-project-id="proj-1" data-project-name="Your Project Title Here">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="lang-en">Leave Feedback</span>
+            <span class="lang-vi">Để lại phản hồi</span>
+            <span class="feedback-count" id="count-proj-1">0</span>
+          </button>
+          <!-- Feedback display area -->
+          <div class="proj-feedbacks" id="feedbacks-proj-1"></div>
+        </article>
+
+        <!-- PROJECT CARD 2 — Edit your info here -->
+        <article class="project-card" id="proj-2" data-project="Project 2">
+          <div class="project-card-top">
+            <div class="project-meta">
+              <span class="proj-status proj-status--done">Completed</span>
+              <span class="proj-year">2024</span>
+            </div>
+            <a href="#" class="proj-repo-link" target="_blank" rel="noopener" aria-label="View repository">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            </a>
+          </div>
+          <h3 class="proj-title">Your Second Project Here</h3>
+          <p class="proj-desc">
+            <span class="lang-en">Add your second project description here. Great for a CI/CD pipeline, homelab setup, or automation script.</span>
+            <span class="lang-vi">Thêm mô tả dự án thứ hai ở đây. Phù hợp cho pipeline CI/CD, homelab hoặc tự động hóa.</span>
+          </p>
+          <div class="proj-tags">
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Terraform</span>
+          </div>
+          <button class="proj-feedback-btn" data-project-id="proj-2" data-project-name="Your Second Project Here">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="lang-en">Leave Feedback</span>
+            <span class="lang-vi">Để lại phản hồi</span>
+            <span class="feedback-count" id="count-proj-2">0</span>
+          </button>
+          <div class="proj-feedbacks" id="feedbacks-proj-2"></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       FEEDBACK MODAL
+       ================================================ -->
+  <div class="fb-overlay" id="feedbackOverlay" role="dialog" aria-modal="true" aria-labelledby="fb-modal-title">
+    <div class="fb-modal">
+      <button class="fb-close" id="fbClose" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <p class="fb-eyebrow">Project Feedback</p>
+      <h3 id="fb-modal-title" class="fb-project-name">—</h3>
+      <div class="oracle-accent-line"></div>
+
+      <form id="feedbackForm" novalidate>
+        <!-- Hidden: which project -->
+        <input type="hidden" id="fb-project-id" name="project_id">
+        <input type="hidden" id="fb-project-label" name="project_name">
+        <!-- Honeypot for spam -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="fb-fields">
+          <div class="fb-field-group">
+            <label for="fb-name">
+              <span class="lang-en">Your Name <span class="required">*</span></span>
+              <span class="lang-vi">Tên của bạn <span class="required">*</span></span>
+            </label>
+            <input type="text" id="fb-name" name="name" placeholder="Nguyen Van A" autocomplete="name" required>
+          </div>
+
+          <div class="fb-field-group">
+            <label for="fb-position">
+              <span class="lang-en">Position / Role <span class="required">*</span></span>
+              <span class="lang-vi">Chức vụ / Vai trò <span class="required">*</span></span>
+            </label>
+            <input type="text" id="fb-position" name="position" placeholder="Senior Engineer at Acme Corp" required>
+          </div>
+
+          <div class="fb-field-group">
+            <label for="fb-email">
+              <span class="lang-en">Email <span class="optional">(optional)</span></span>
+              <span class="lang-vi">Email <span class="optional">(tuỳ chọn)</span></span>
+            </label>
+            <input type="email" id="fb-email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div class="fb-field-group fb-field-group--full">
+            <label for="fb-message">
+              <span class="lang-en">Your Feedback <span class="required">*</span></span>
+              <span class="lang-vi">Phản hồi của bạn <span class="required">*</span></span>
+            </label>
+            <textarea id="fb-message" name="message" rows="4" placeholder="What do you think about this project?" required></textarea>
+          </div>
+        </div>
+
+        <div class="fb-footer">
+          <p class="fb-privacy">
+            <span class="lang-en">Your feedback is stored locally and sent to the project owner by email.</span>
+            <span class="lang-vi">Phản hồi được lưu trên thiết bị và gửi đến chủ dự án qua email.</span>
+          </p>
+          <button type="submit" class="fb-submit-btn" id="fbSubmitBtn">
+            <span class="fb-btn-text lang-en">Send Feedback</span>
+            <span class="fb-btn-text lang-vi">Gửi phản hồi</span>
+            <span class="fb-btn-loading" hidden>
+              <svg class="spin" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-opacity=".3"/><path d="M12 3a9 9 0 0 1 9 9"/></svg>
+              Sending...
+            </span>
+          </button>
+        </div>
+
+        <div class="fb-success" id="fbSuccess" hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <div>
+            <strong class="lang-en">Thank you!</strong>
+            <strong class="lang-vi">Cảm ơn bạn!</strong>
+            <p class="lang-en">Your feedback has been received.</p>
+            <p class="lang-vi">Phản hồi của bạn đã được ghi nhận.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
